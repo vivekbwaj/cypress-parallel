@@ -29,6 +29,10 @@ jobs:
             - tmp
   test:
     working_directory: ~/tmp
+    docker:
+      - image: 'cypress/browsers:node12.18.0-chrome83-ff77'
+        environment:
+          TERM: xterm
     steps:
       - attach_workspace:
           at: ~/
