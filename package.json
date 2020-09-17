@@ -1,0 +1,23 @@
+{
+  "name": "cypress-parallel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:ci": "cypress run --env configFile=prod --browser chrome --headless --spec 'cypress/integration/**.spec.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivekbwaj/cypress-parallel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vivekbwaj/cypress-parallel/issues"
+  },
+  "homepage": "https://github.com/vivekbwaj/cypress-parallel#readme",
+  "devDependencies": {
+    "cypress": "^5.2.0"
+  }
+}
