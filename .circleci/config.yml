@@ -1,5 +1,4 @@
 version: 2
-
 jobs:
   build:
     working_directory: ~/tmp
@@ -36,12 +35,11 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npx cypress verify    
       - run: ls -la cypress
       - run: ls -la cypress/integration
       - run:
-          name: Running cypress test01
-          command: npm run cy:ci 'cypress/integration/test04.spec.js'
+          name: Running cypress tests 1
+          command: 'npm run cy:ci cypress/integration/test01.spec.js'
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -55,12 +53,11 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npx cypress verify    
       - run: ls -la cypress
       - run: ls -la cypress/integration
       - run:
-          name: Running cypress test02
-          command: npm run cy:ci 'cypress/integration/test04.spec.js'
+          name: Running cypress tests 2
+          command: 'npm run cy:ci cypress/integration/test02.spec.js'
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -74,12 +71,11 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npx cypress verify    
       - run: ls -la cypress
       - run: ls -la cypress/integration
       - run:
-          name: Running cypress test03
-          command: npm run cy:ci 'cypress/integration/test04.spec.js'
+          name: Running cypress tests 3
+          command: 'npm run cy:ci cypress/integration/test03.spec.js'
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
@@ -93,16 +89,33 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - run: npx cypress verify    
       - run: ls -la cypress
       - run: ls -la cypress/integration
       - run:
-          name: Running cypress test04
-          command: npm run cy:ci 'cypress/integration/test04.spec.js'
+          name: Running cypress tests 4
+          command: 'npm run cy:ci cypress/integration/test04.spec.js'
       - store_artifacts:
           path: cypress/videos
       - store_artifacts:
-          path: cypress/screenshots                    
+          path: cypress/screenshots
+  test5:
+    working_directory: ~/tmp
+    docker:
+      - image: 'cypress/browsers:node12.18.0-chrome83-ff77'
+        environment:
+          TERM: xterm
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: ls -la cypress
+      - run: ls -la cypress/integration
+      - run:
+          name: Running cypress tests 5
+          command: 'npm run cy:ci cypress/integration/test05.spec.js'
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
 workflows:
   version: 2
   build_and_test:
@@ -118,5 +131,8 @@ workflows:
           requires:
             - build
       - test4:
+          requires:
+            - build
+      - test5:
           requires:
             - build

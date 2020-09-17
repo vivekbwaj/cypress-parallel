@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/vivekbwaj/cypress-parallel#readme",
   "devDependencies": {
-    "cypress": "^5.2.0"
+    "cypress": "^5.2.0",
+    "write-yaml": "^1.0.0"
   }
 }
