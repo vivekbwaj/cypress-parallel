@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cy:ci": "cypress run --env configFile=prod --browser chrome --headless --spec 'cypress/integration/**.spec.js'"
+    "cy:ci": "cypress run --env configFile=prod --browser chrome --headless --spec "
   },
   "repository": {
     "type": "git",
