@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/tmp
     docker:
-      - image: 'cypress/base:10'
+      - image: 'cypress/browsers:node12.18.0-chrome83-ff77'
         environment:
           TERM: xterm
     steps:
@@ -30,12 +30,13 @@ jobs:
   test:
     working_directory: ~/tmp
     docker:
-      - image: 'cypress/base:10'
+      - image: 'cypress/browsers:node12.18.0-chrome83-ff77'
         environment:
           TERM: xterm
     steps:
       - attach_workspace:
           at: ~/
+      - run: npx cypress verify    
       - run: ls -la cypress
       - run: ls -la cypress/integration
       - run:
